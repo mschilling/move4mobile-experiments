@@ -14,7 +14,7 @@ if [ $TRAVIS_BRANCH == "feature/TravisSetup" ]; then
         echo "Initiate deployment :)"
         firebase use $1 --token "${FIREBASE_API_TOKEN}"
         firebase deploy --only functions --token "${FIREBASE_API_TOKEN}"
-        firebase deploy --only hosting --token "${FIREBASE_API_TOKEN}"
+        firebase deploy --only hosting --token "${FIREBASE_API_TOKEN}" --non-interactive
     else
         echo "Is a pull request..."
         echo "Not deploying."
