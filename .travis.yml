@@ -1,0 +1,24 @@
+language: node_js
+node_js:
+- '6.9'
+dist: trusty
+before_script:
+- npm list -g firebase-tools --depth=0 || npm install -g firebase-tools
+- npm list -g webpack --depth=0 || npm install -g webpack
+script:
+- npm install
+- cd functions
+- npm install
+- webpack
+- cd ..
+after_success:
+- ./deploy.sh m4m-experiments
+cache:
+  directories:
+  - $(npm config get prefix)/bin/firebase-tools
+  - $(npm config get prefix)/bin/webpack
+  - node_modules
+notifications:
+  email: false
+  # slack:
+  #   secure: secret
