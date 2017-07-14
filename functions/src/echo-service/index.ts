@@ -10,7 +10,9 @@ export const listener = functions.https.onRequest(async (req, res) => {
     }
     
     const snapshot = await admin.database().ref('/echo-service').push(payload)
-    let responseText = (req.body.text && !req.body.bot_id) ? req.body.text : 'You got it!!';
-    res.send({ text: responseText})
-    // res.redirect(303, snapshot.ref)
+    if (req.body.text && !req.body.bot_id) {
+        res.send({ text: req.body.text })
+    } else {
+        res.send({})
+    }
 })
