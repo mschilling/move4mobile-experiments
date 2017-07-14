@@ -6,8 +6,8 @@ if [ -z "$1" ]; then
     exit 1
 fi
 echo "Branch: $TRAVIS_BRANCH"
-if [ $TRAVIS_BRANCH == "feature/TravisSetup" ]; then
-    echo "Branch is feature/TravisSetup..."
+if [ $TRAVIS_BRANCH == "develop" ]; then
+    echo "Branch is develop..."
     echo "Checking on PR..."
     echo "Pull Request: $TRAVIS_PULL_REQUEST"
     if [ $TRAVIS_PULL_REQUEST == false ]; then
