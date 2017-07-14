@@ -1,0 +1,14 @@
+{
+  "rules": {
+    ".read": "auth != null",
+    ".write": "auth != null",
+    "raw": {
+      ".read": "false",
+      ".write": "false",
+      "slack": {
+        ".read": "false",
+        ".write": "true"
+      }
+    }
+  }
+}
